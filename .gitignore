@@ -1,0 +1,9 @@
+# Dataset
+data/raw/
+data/embeddings/
+
+# Model/cache
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

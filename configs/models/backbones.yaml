@@ -1,0 +1,17 @@
+audio:
+  model: laion/clap-htsat-unfused
+  sample_rate: 48000
+  duration_seconds: 10
+  embedding_dimension: 512
+  frozen: true
+
+visual:
+  model: MCG-NJU/videomae-base
+  num_frames: 16
+  image_size: 224
+  embedding_dimension: 768
+  frozen: true
+
+multimodal:
+  fusion: normalized_concatenation
+  embedding_dimension: 1280
