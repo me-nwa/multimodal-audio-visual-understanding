@@ -1,0 +1,403 @@
+sample_id,true_class,predicted_class,confidence
+ave_03741,Church bell,Church bell,0.99835145
+ave_03742,Church bell,Church bell,0.99185985
+ave_03743,Church bell,Church bell,0.9989471
+ave_03744,Church bell,Church bell,0.9981534
+ave_03745,Church bell,Church bell,0.9991026
+ave_03746,Church bell,Church bell,0.9965558
+ave_03747,Church bell,Church bell,0.99883705
+ave_03748,Church bell,Church bell,0.9984276
+ave_03749,Church bell,Church bell,0.99766576
+ave_03750,Church bell,Church bell,0.9877983
+ave_03751,Church bell,Church bell,0.9858408
+ave_03752,Church bell,Church bell,0.9984641
+ave_03753,Church bell,Church bell,0.99763465
+ave_03754,Church bell,Church bell,0.9978846
+ave_03755,Church bell,Church bell,0.9991216
+ave_03756,Church bell,Church bell,0.96932006
+ave_03757,Church bell,Church bell,0.9973986
+ave_03758,Church bell,Church bell,0.9961599
+ave_03759,"Male speech, man speaking","Male speech, man speaking",0.95238805
+ave_03760,"Male speech, man speaking","Male speech, man speaking",0.9788503
+ave_03761,"Male speech, man speaking","Male speech, man speaking",0.98154044
+ave_03762,"Male speech, man speaking","Male speech, man speaking",0.88167375
+ave_03763,"Male speech, man speaking","Male speech, man speaking",0.9878278
+ave_03764,"Male speech, man speaking","Male speech, man speaking",0.93810385
+ave_03765,"Male speech, man speaking","Male speech, man speaking",0.9986815
+ave_03766,"Male speech, man speaking","Male speech, man speaking",0.9761612
+ave_03767,"Male speech, man speaking","Male speech, man speaking",0.7769843
+ave_03768,"Male speech, man speaking","Male speech, man speaking",0.9875327
+ave_03769,"Male speech, man speaking","Male speech, man speaking",0.9441861
+ave_03770,"Male speech, man speaking","Male speech, man speaking",0.99777126
+ave_03771,"Male speech, man speaking","Male speech, man speaking",0.7840266
+ave_03772,"Male speech, man speaking","Male speech, man speaking",0.99845266
+ave_03773,"Male speech, man speaking","Male speech, man speaking",0.97877043
+ave_03774,"Male speech, man speaking","Male speech, man speaking",0.9761627
+ave_03775,"Male speech, man speaking","Male speech, man speaking",0.8471015
+ave_03776,Bark,Bark,0.99906486
+ave_03777,Bark,Bark,0.9973266
+ave_03778,Bark,Bark,0.975718
+ave_03779,Bark,Bark,0.9856252
+ave_03780,Bark,Bark,0.8157134
+ave_03781,Bark,Bark,0.999067
+ave_03782,Bark,Bark,0.9913195
+ave_03783,Bark,Bark,0.66408086
+ave_03784,Bark,Bark,0.9725132
+ave_03785,Bark,Bark,0.99533135
+ave_03786,Bark,Bark,0.99932444
+ave_03787,Bark,Bark,0.9402318
+ave_03788,Bark,Bark,0.97881204
+ave_03789,Bark,Bark,0.99652594
+ave_03790,Bark,Bark,0.95088774
+ave_03791,Bark,Bark,0.9980258
+ave_03792,Bark,Bark,0.99730456
+ave_03793,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.91591626
+ave_03794,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.86846405
+ave_03795,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.96628433
+ave_03796,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.88206345
+ave_03797,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.8419773
+ave_03798,"Fixed-wing aircraft, airplane",Helicopter,0.7862445
+ave_03799,"Fixed-wing aircraft, airplane",Bus,0.3350821
+ave_03800,"Fixed-wing aircraft, airplane","Race car, auto racing",0.7656125
+ave_03801,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.75787205
+ave_03802,"Fixed-wing aircraft, airplane",Bus,0.49175957
+ave_03803,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.9362338
+ave_03804,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.9525154
+ave_03805,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.9535413
+ave_03806,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.949171
+ave_03807,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.93323874
+ave_03808,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.9659227
+ave_03809,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.97929776
+ave_03810,"Fixed-wing aircraft, airplane","Fixed-wing aircraft, airplane",0.9791165
+ave_03811,"Race car, auto racing","Race car, auto racing",0.9309515
+ave_03812,"Race car, auto racing","Race car, auto racing",0.9828661
+ave_03813,"Race car, auto racing","Race car, auto racing",0.28019962
+ave_03814,"Race car, auto racing","Race car, auto racing",0.98811406
+ave_03815,"Race car, auto racing","Race car, auto racing",0.8936828
+ave_03816,"Race car, auto racing","Race car, auto racing",0.99268144
+ave_03817,"Race car, auto racing","Race car, auto racing",0.85448116
+ave_03818,"Race car, auto racing","Race car, auto racing",0.9162392
+ave_03819,"Race car, auto racing","Race car, auto racing",0.8091901
+ave_03820,"Race car, auto racing","Race car, auto racing",0.46119422
+ave_03821,"Race car, auto racing","Race car, auto racing",0.98988426
+ave_03822,"Race car, auto racing","Race car, auto racing",0.9833136
+ave_03823,"Race car, auto racing","Race car, auto racing",0.7155683
+ave_03824,"Race car, auto racing","Race car, auto racing",0.88047165
+ave_03825,"Race car, auto racing","Race car, auto racing",0.9320199
+ave_03826,"Race car, auto racing","Fixed-wing aircraft, airplane",0.39851108
+ave_03827,"Race car, auto racing","Race car, auto racing",0.9445502
+ave_03828,"Race car, auto racing","Race car, auto racing",0.89382
+ave_03829,"Female speech, woman speaking","Female speech, woman speaking",0.29851437
+ave_03830,"Female speech, woman speaking","Female speech, woman speaking",0.9970642
+ave_03831,"Female speech, woman speaking","Female speech, woman speaking",0.9842324
+ave_03832,"Female speech, woman speaking","Female speech, woman speaking",0.9780516
+ave_03833,"Female speech, woman speaking","Female speech, woman speaking",0.9697355
+ave_03834,"Female speech, woman speaking","Female speech, woman speaking",0.99146855
+ave_03835,"Female speech, woman speaking","Female speech, woman speaking",0.98377025
+ave_03836,"Female speech, woman speaking","Female speech, woman speaking",0.9819629
+ave_03837,"Female speech, woman speaking","Female speech, woman speaking",0.6856794
+ave_03838,"Female speech, woman speaking","Female speech, woman speaking",0.9678384
+ave_03839,"Female speech, woman speaking","Female speech, woman speaking",0.98478127
+ave_03840,"Female speech, woman speaking","Female speech, woman speaking",0.9585504
+ave_03841,"Female speech, woman speaking","Male speech, man speaking",0.61295485
+ave_03842,"Female speech, woman speaking","Female speech, woman speaking",0.9976999
+ave_03843,"Female speech, woman speaking","Female speech, woman speaking",0.9892498
+ave_03844,"Female speech, woman speaking","Female speech, woman speaking",0.9777894
+ave_03845,"Female speech, woman speaking","Female speech, woman speaking",0.5125456
+ave_03846,Helicopter,Helicopter,0.85921466
+ave_03847,Helicopter,Helicopter,0.6925134
+ave_03848,Helicopter,Helicopter,0.8078566
+ave_03849,Helicopter,Helicopter,0.6294187
+ave_03850,Helicopter,Helicopter,0.9560518
+ave_03851,Helicopter,Helicopter,0.6864746
+ave_03852,Helicopter,Helicopter,0.9959105
+ave_03853,Helicopter,Helicopter,0.83556914
+ave_03854,Helicopter,Helicopter,0.8897882
+ave_03855,Helicopter,"Fixed-wing aircraft, airplane",0.44262987
+ave_03856,Helicopter,Helicopter,0.6866402
+ave_03857,Helicopter,Church bell,0.9243189
+ave_03858,Helicopter,Helicopter,0.39574492
+ave_03859,Helicopter,Helicopter,0.93926126
+ave_03860,Helicopter,Helicopter,0.88579005
+ave_03861,Helicopter,Helicopter,0.95088255
+ave_03862,Helicopter,"Fixed-wing aircraft, airplane",0.5462396
+ave_03863,"Violin, fiddle","Violin, fiddle",0.6574754
+ave_03864,"Violin, fiddle",Mandolin,0.74223614
+ave_03865,"Violin, fiddle","Violin, fiddle",0.99799395
+ave_03866,"Violin, fiddle","Violin, fiddle",0.98450756
+ave_03867,"Violin, fiddle","Violin, fiddle",0.9268752
+ave_03868,"Violin, fiddle",Banjo,0.85210145
+ave_03869,"Violin, fiddle",Banjo,0.32069963
+ave_03870,"Violin, fiddle","Violin, fiddle",0.97900623
+ave_03871,"Violin, fiddle","Violin, fiddle",0.9069335
+ave_03872,"Violin, fiddle","Violin, fiddle",0.96914536
+ave_03873,"Violin, fiddle",Accordion,0.52022266
+ave_03874,"Violin, fiddle","Violin, fiddle",0.906306
+ave_03875,"Violin, fiddle","Violin, fiddle",0.9811024
+ave_03876,"Violin, fiddle","Violin, fiddle",0.96647924
+ave_03877,"Violin, fiddle","Violin, fiddle",0.9359028
+ave_03878,"Violin, fiddle","Violin, fiddle",0.7733155
+ave_03879,"Violin, fiddle","Violin, fiddle",0.36421436
+ave_03880,"Violin, fiddle","Violin, fiddle",0.5940702
+ave_03881,Flute,Flute,0.9805654
+ave_03882,Flute,Flute,0.91376275
+ave_03883,Flute,Flute,0.8666822
+ave_03884,Flute,Flute,0.99788684
+ave_03885,Flute,Flute,0.9903751
+ave_03886,Flute,Cat,0.3846964
+ave_03887,Flute,Flute,0.8947411
+ave_03888,Flute,Flute,0.9849996
+ave_03889,Flute,Flute,0.97496015
+ave_03890,Flute,Flute,0.9666491
+ave_03891,Flute,Flute,0.5833017
+ave_03892,Flute,Flute,0.9652906
+ave_03893,Flute,Clock,0.6501148
+ave_03894,Flute,Flute,0.9837812
+ave_03895,Flute,Flute,0.97463256
+ave_03896,Flute,Flute,0.9572186
+ave_03897,Flute,Flute,0.99178255
+ave_03898,Ukulele,Mandolin,0.46332166
+ave_03899,Ukulele,Ukulele,0.8555885
+ave_03900,Ukulele,Ukulele,0.36559394
+ave_03901,Ukulele,Mandolin,0.6145372
+ave_03902,Ukulele,Ukulele,0.56939286
+ave_03903,Ukulele,Ukulele,0.98808634
+ave_03904,Ukulele,Ukulele,0.4390638
+ave_03905,Ukulele,Ukulele,0.75054735
+ave_03906,Ukulele,Ukulele,0.9723023
+ave_03907,Ukulele,Ukulele,0.65232015
+ave_03908,Ukulele,Ukulele,0.90006
+ave_03909,Ukulele,Ukulele,0.6586365
+ave_03910,Ukulele,Ukulele,0.5385964
+ave_03911,Ukulele,Ukulele,0.49832696
+ave_03912,Ukulele,Ukulele,0.96908075
+ave_03913,Ukulele,Ukulele,0.56162655
+ave_03914,Frying (food),Frying (food),0.9950418
+ave_03915,Frying (food),Frying (food),0.994915
+ave_03916,Frying (food),Frying (food),0.9987626
+ave_03917,Frying (food),Frying (food),0.9940797
+ave_03918,Frying (food),Frying (food),0.9933436
+ave_03919,Frying (food),Frying (food),0.9942615
+ave_03920,Frying (food),Frying (food),0.9985066
+ave_03921,Frying (food),Frying (food),0.9771096
+ave_03922,Frying (food),Frying (food),0.9995208
+ave_03923,Frying (food),Frying (food),0.99927324
+ave_03924,Frying (food),Frying (food),0.9908919
+ave_03925,Frying (food),Frying (food),0.99844545
+ave_03926,Frying (food),Frying (food),0.97765255
+ave_03927,Frying (food),Frying (food),0.9996674
+ave_03928,Frying (food),Frying (food),0.9967834
+ave_03929,Frying (food),Frying (food),0.9894862
+ave_03930,Frying (food),Frying (food),0.6520898
+ave_03931,Frying (food),Frying (food),0.997666
+ave_03932,Truck,Truck,0.6002336
+ave_03933,Truck,Truck,0.22406717
+ave_03934,Truck,Truck,0.80022466
+ave_03935,Truck,Truck,0.587322
+ave_03936,Truck,Train horn,0.809524
+ave_03937,Truck,Truck,0.51675063
+ave_03938,Truck,"Fixed-wing aircraft, airplane",0.6382361
+ave_03939,Truck,Truck,0.68116724
+ave_03940,Truck,Helicopter,0.8863196
+ave_03941,Truck,Truck,0.75428534
+ave_03942,Truck,Truck,0.51459163
+ave_03943,Truck,Truck,0.75292885
+ave_03944,Truck,Truck,0.5968538
+ave_03945,Shofar,Shofar,0.9871257
+ave_03946,Shofar,Shofar,0.9955687
+ave_03947,Shofar,Shofar,0.96760434
+ave_03948,Shofar,Shofar,0.99526715
+ave_03949,Shofar,Shofar,0.85739005
+ave_03950,Shofar,Shofar,0.9794702
+ave_03951,Shofar,Shofar,0.63953733
+ave_03952,Shofar,Shofar,0.99520004
+ave_03953,Shofar,Shofar,0.75490195
+ave_03954,Shofar,Shofar,0.3886893
+ave_03955,Motorcycle,"Race car, auto racing",0.46505675
+ave_03956,Motorcycle,Motorcycle,0.49750984
+ave_03957,Motorcycle,Truck,0.37679583
+ave_03958,Motorcycle,Motorcycle,0.87800086
+ave_03959,Motorcycle,"Race car, auto racing",0.7071747
+ave_03960,Motorcycle,Truck,0.67214125
+ave_03961,Motorcycle,Motorcycle,0.8915586
+ave_03962,Motorcycle,Motorcycle,0.8725691
+ave_03963,Motorcycle,Shofar,0.45839217
+ave_03964,Acoustic guitar,Acoustic guitar,0.9136511
+ave_03965,Acoustic guitar,Acoustic guitar,0.79770935
+ave_03966,Acoustic guitar,"Violin, fiddle",0.9624817
+ave_03967,Acoustic guitar,Acoustic guitar,0.9719468
+ave_03968,Acoustic guitar,Acoustic guitar,0.9661301
+ave_03969,Acoustic guitar,Acoustic guitar,0.99050003
+ave_03970,Acoustic guitar,Acoustic guitar,0.9310569
+ave_03971,Acoustic guitar,Ukulele,0.4778839
+ave_03972,Acoustic guitar,Acoustic guitar,0.9830419
+ave_03973,Acoustic guitar,Acoustic guitar,0.96520984
+ave_03974,Acoustic guitar,Flute,0.48375988
+ave_03975,Acoustic guitar,Accordion,0.5361521
+ave_03976,Acoustic guitar,Acoustic guitar,0.9531207
+ave_03977,Acoustic guitar,Acoustic guitar,0.974496
+ave_03978,Acoustic guitar,Acoustic guitar,0.9841337
+ave_03979,Acoustic guitar,"Violin, fiddle",0.4102297
+ave_03980,Acoustic guitar,Acoustic guitar,0.90626264
+ave_03981,Acoustic guitar,Acoustic guitar,0.8640721
+ave_03982,Train horn,Train horn,0.9534819
+ave_03983,Train horn,Train horn,0.9542224
+ave_03984,Train horn,Train horn,0.9859715
+ave_03985,Train horn,Train horn,0.99870884
+ave_03986,Train horn,Train horn,0.99649197
+ave_03987,Train horn,Train horn,0.9735435
+ave_03988,Train horn,Train horn,0.99883074
+ave_03989,Train horn,Train horn,0.91759324
+ave_03990,Train horn,Train horn,0.99852884
+ave_03991,Train horn,Shofar,0.77826184
+ave_03992,Train horn,Train horn,0.9990426
+ave_03993,Train horn,Train horn,0.99684167
+ave_03994,Train horn,Train horn,0.99738044
+ave_03995,Train horn,Train horn,0.9996513
+ave_03996,Train horn,Train horn,0.9642568
+ave_03997,Train horn,Train horn,0.55676466
+ave_03998,Train horn,Train horn,0.98878956
+ave_03999,Clock,Clock,0.99239093
+ave_04000,Clock,Clock,0.98366576
+ave_04001,Clock,Clock,0.9838128
+ave_04002,Clock,Clock,0.9970509
+ave_04003,Clock,Clock,0.9859552
+ave_04004,Clock,Clock,0.9935343
+ave_04005,Clock,Clock,0.9993591
+ave_04006,Clock,Clock,0.99695206
+ave_04007,Clock,Clock,0.98439056
+ave_04008,Clock,Church bell,0.87395
+ave_04009,Clock,Clock,0.9990301
+ave_04010,Clock,Clock,0.9987186
+ave_04011,Clock,Clock,0.9760308
+ave_04012,Clock,Clock,0.9250786
+ave_04013,Clock,Clock,0.9795058
+ave_04014,Clock,Church bell,0.3792076
+ave_04015,Banjo,Banjo,0.90923685
+ave_04016,Banjo,Banjo,0.79965883
+ave_04017,Banjo,Banjo,0.91325474
+ave_04018,Banjo,Banjo,0.9036495
+ave_04019,Banjo,Banjo,0.8550756
+ave_04020,Banjo,Banjo,0.9150432
+ave_04021,Banjo,Banjo,0.85048145
+ave_04022,Banjo,Banjo,0.94248354
+ave_04023,Banjo,Banjo,0.9140749
+ave_04024,Banjo,Ukulele,0.6453521
+ave_04025,Banjo,Banjo,0.5841774
+ave_04026,Banjo,Banjo,0.8455366
+ave_04027,Banjo,Banjo,0.60062236
+ave_04028,Banjo,"Violin, fiddle",0.6254475
+ave_04029,Banjo,Banjo,0.59521246
+ave_04030,Banjo,Banjo,0.76091355
+ave_04031,Banjo,Banjo,0.69736147
+ave_04032,Banjo,"Violin, fiddle",0.58371663
+ave_04033,Goat,Goat,0.9952874
+ave_04034,Goat,Goat,0.98863065
+ave_04035,Goat,"Baby cry, infant cry",0.4215205
+ave_04036,Goat,Goat,0.99852896
+ave_04037,Goat,Goat,0.99847823
+ave_04038,Goat,Goat,0.8243141
+ave_04039,Goat,Goat,0.91184694
+ave_04040,Goat,Goat,0.9917762
+ave_04041,Goat,Goat,0.9848204
+ave_04042,Goat,"Male speech, man speaking",0.8149145
+ave_04043,"Baby cry, infant cry","Baby cry, infant cry",0.9958461
+ave_04044,"Baby cry, infant cry","Baby cry, infant cry",0.99700254
+ave_04045,"Baby cry, infant cry","Baby cry, infant cry",0.99907863
+ave_04046,"Baby cry, infant cry","Baby cry, infant cry",0.9438078
+ave_04047,"Baby cry, infant cry","Baby cry, infant cry",0.9057046
+ave_04048,"Baby cry, infant cry","Baby cry, infant cry",0.9583902
+ave_04049,"Baby cry, infant cry","Baby cry, infant cry",0.96398985
+ave_04050,"Baby cry, infant cry","Baby cry, infant cry",0.99511105
+ave_04051,Bus,Bus,0.4569053
+ave_04052,Bus,Truck,0.4779632
+ave_04053,Bus,Truck,0.62005824
+ave_04054,Bus,"Race car, auto racing",0.3741092
+ave_04055,Bus,Bus,0.4273552
+ave_04056,Bus,Truck,0.61846805
+ave_04057,Chainsaw,Chainsaw,0.9960377
+ave_04058,Chainsaw,Chainsaw,0.9968503
+ave_04059,Chainsaw,Chainsaw,0.9600819
+ave_04060,Chainsaw,Chainsaw,0.99698395
+ave_04061,Chainsaw,Chainsaw,0.9975586
+ave_04062,Chainsaw,Chainsaw,0.6420071
+ave_04063,Chainsaw,Chainsaw,0.99299616
+ave_04064,Chainsaw,Chainsaw,0.93286234
+ave_04065,Chainsaw,Chainsaw,0.93010503
+ave_04066,Chainsaw,Chainsaw,0.9985827
+ave_04067,Chainsaw,Chainsaw,0.49765188
+ave_04068,Chainsaw,Chainsaw,0.9990922
+ave_04069,Chainsaw,Chainsaw,0.9976936
+ave_04070,Chainsaw,Chainsaw,0.9960658
+ave_04071,Chainsaw,Chainsaw,0.9598369
+ave_04072,Chainsaw,Chainsaw,0.7023914
+ave_04073,Cat,Cat,0.63013536
+ave_04074,Cat,Cat,0.5169308
+ave_04075,Cat,Cat,0.93677413
+ave_04076,Cat,Cat,0.9918899
+ave_04077,Cat,"Rodents, rats, mice",0.5429662
+ave_04078,Cat,"Rodents, rats, mice",0.6641642
+ave_04079,Horse,Horse,0.9890414
+ave_04080,Horse,Horse,0.6219906
+ave_04081,Horse,Horse,0.984484
+ave_04082,Horse,Horse,0.7627144
+ave_04083,Horse,Horse,0.43662867
+ave_04084,Horse,Horse,0.9792925
+ave_04085,Toilet flush,Toilet flush,0.99952745
+ave_04086,Toilet flush,Toilet flush,0.99860185
+ave_04087,Toilet flush,Toilet flush,0.99940884
+ave_04088,Toilet flush,Toilet flush,0.9973152
+ave_04089,Toilet flush,Toilet flush,0.9996093
+ave_04090,Toilet flush,Toilet flush,0.99963665
+ave_04091,Toilet flush,Toilet flush,0.9986884
+ave_04092,Toilet flush,Toilet flush,0.99941325
+ave_04093,Toilet flush,Toilet flush,0.9655529
+ave_04094,Toilet flush,Toilet flush,0.99941325
+ave_04095,Toilet flush,Toilet flush,0.98643106
+ave_04096,Toilet flush,Toilet flush,0.9997682
+ave_04097,Toilet flush,Toilet flush,0.9903019
+ave_04098,Toilet flush,Toilet flush,0.99660033
+ave_04099,Toilet flush,Toilet flush,0.9994197
+ave_04100,Toilet flush,Toilet flush,0.9988599
+ave_04101,Toilet flush,Toilet flush,0.99541533
+ave_04102,Toilet flush,Toilet flush,0.9992895
+ave_04103,"Rodents, rats, mice","Rodents, rats, mice",0.98665667
+ave_04104,"Rodents, rats, mice","Rodents, rats, mice",0.9888165
+ave_04105,"Rodents, rats, mice","Rodents, rats, mice",0.89438665
+ave_04106,"Rodents, rats, mice","Rodents, rats, mice",0.47682285
+ave_04107,"Rodents, rats, mice",Clock,0.91673607
+ave_04108,"Rodents, rats, mice","Rodents, rats, mice",0.97925913
+ave_04109,"Rodents, rats, mice",Cat,0.33362144
+ave_04110,"Rodents, rats, mice","Rodents, rats, mice",0.7718216
+ave_04111,"Rodents, rats, mice","Rodents, rats, mice",0.93655324
+ave_04112,"Rodents, rats, mice","Rodents, rats, mice",0.96297544
+ave_04113,Accordion,Accordion,0.712774
+ave_04114,Accordion,Accordion,0.9928054
+ave_04115,Accordion,Accordion,0.89345455
+ave_04116,Accordion,Accordion,0.766982
+ave_04117,Accordion,Accordion,0.98253214
+ave_04118,Accordion,Accordion,0.99452317
+ave_04119,Accordion,Accordion,0.97479564
+ave_04120,Accordion,Accordion,0.9399817
+ave_04121,Accordion,Clock,0.99015397
+ave_04122,Accordion,Accordion,0.9313327
+ave_04123,Accordion,Accordion,0.88823617
+ave_04124,Accordion,Accordion,0.95807034
+ave_04125,Accordion,Accordion,0.9971934
+ave_04126,Accordion,Accordion,0.7804094
+ave_04127,Accordion,Accordion,0.79262364
+ave_04128,Mandolin,Banjo,0.5409082
+ave_04129,Mandolin,Mandolin,0.7178552
+ave_04130,Mandolin,Mandolin,0.6834522
+ave_04131,Mandolin,Mandolin,0.8445564
+ave_04132,Mandolin,Acoustic guitar,0.42034066
+ave_04133,Mandolin,Mandolin,0.4992005
+ave_04134,Mandolin,Mandolin,0.8027108
+ave_04135,Mandolin,Mandolin,0.62843925
+ave_04136,Mandolin,Mandolin,0.762739
+ave_04137,Mandolin,Acoustic guitar,0.85855967
+ave_04138,Mandolin,Mandolin,0.62645847
+ave_04139,Mandolin,Ukulele,0.69844246
+ave_04140,Mandolin,Mandolin,0.7600726
+ave_04141,Mandolin,Mandolin,0.8139322
+ave_04142,Mandolin,Mandolin,0.50677377
