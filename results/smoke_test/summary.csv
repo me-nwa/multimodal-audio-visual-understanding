@@ -1,0 +1,6 @@
+sample_id,video_id,class_name,audio_dim,video_dim,multimodal_dim
+ave_00000,c---zaDCTaE,Church bell,512,768,1280
+ave_00152,0I_WwkebbeM,"Male speech, man speaking",512,768,1280
+ave_00294,7KSXUptBBYQ,Bark,512,768,1280
+ave_00431,8zL4trFJ1LY,"Fixed-wing aircraft, airplane",512,768,1280
+ave_00579,1ZeXHvqcMRE,"Race car, auto racing",512,768,1280

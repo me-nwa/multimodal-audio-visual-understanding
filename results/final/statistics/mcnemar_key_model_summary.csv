@@ -1,0 +1,7 @@
+comparison,experiment,left_model,right_model,mean_accuracy_difference,significant_seeds,min_p_holm,max_p_holm,all_3_seeds_significant
+0 dB audio: multimodal vs audio,E3,multimodal,audio,0.04063018242122718,1,0.0025523276190142496,1.0,False
+Clean: multimodal vs audio,E0,multimodal,audio,0.005804311774461057,0,1.0,1.0,False
+Dual degradation: multimodal vs audio,E9,multimodal,audio,0.01243781094527363,0,0.06626936286920682,1.0,False
+Missing audio: multimodal vs visual,E7,multimodal,visual,-0.3938640132669984,3,8.727826788547632e-35,5.711758034575791e-30,True
+Missing video: multimodal vs audio,E8,multimodal,audio,-0.029021558872305103,1,0.032419800758361816,1.0,False
+Sigma4 blur: multimodal vs audio,E6,multimodal,audio,0.006633499170812647,0,1.0,1.0,False

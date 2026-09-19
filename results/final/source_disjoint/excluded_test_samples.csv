@@ -1,0 +1,9 @@
+sample_id,split,class_name,video_id,quality,start_time,end_time,video_path,video_exists,source_seen_during_training
+ave_03762,test,"Male speech, man speaking",0NmA9tKpBdw,good,0,10,data/raw/ave/videos/0NmA9tKpBdw.mp4,yes,True
+ave_03798,test,"Fixed-wing aircraft, airplane",7iIBkME4bSM,good,0,10,data/raw/ave/videos/7iIBkME4bSM.mp4,yes,True
+ave_03819,test,"Race car, auto racing",-WOcO4B-Jis,good,0,10,data/raw/ave/videos/-WOcO4B-Jis.mp4,yes,True
+ave_03837,test,"Female speech, woman speaking",0qvQIuQoODo,good,1,4,data/raw/ave/videos/0qvQIuQoODo.mp4,yes,True
+ave_03868,test,"Violin, fiddle",-PljzzluWNw,good,0,10,data/raw/ave/videos/-PljzzluWNw.mp4,yes,True
+ave_03979,test,Acoustic guitar,-9_5_2i4igQ,good,0,10,data/raw/ave/videos/-9_5_2i4igQ.mp4,yes,True
+ave_04128,test,Mandolin,1cmo1SGxJnc,good,0,10,data/raw/ave/videos/1cmo1SGxJnc.mp4,yes,True
+ave_04138,test,Mandolin,0f_iTO5t3hU,good,0,10,data/raw/ave/videos/0f_iTO5t3hU.mp4,yes,True
