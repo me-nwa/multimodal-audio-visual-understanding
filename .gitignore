@@ -1,9 +1,23 @@
-# Dataset
-data/raw/
-data/embeddings/
-
-# Model/cache
+# Python
 .venv/
 __pycache__/
 *.pyc
+
+# macOS
 .DS_Store
+
+# Large research data
+data/raw/
+data/embeddings/
+
+# Trained model checkpoints
+models/
+
+# Next.js
+app/frontend/node_modules/
+app/frontend/.next/
+
+# Local environment
+.env
+.env.local
+app/frontend/.env.local
