@@ -21,3 +21,10 @@ app/frontend/.next/
 .env
 .env.local
 app/frontend/.env.local
+
+# AVE metadata / generated manifests
+data/metadata/*.txt
+data/metadata/*.csv
+
+# Keep documentation inside metadata folder
+!data/metadata/README.md
