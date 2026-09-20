@@ -54,7 +54,7 @@ const CONDITIONS = [
   { id: "E4", label: "E4 · Video blur · σ = 1", detail: "A light Gaussian blur is applied to the video frames." },
   { id: "E5", label: "E5 · Video blur · σ = 2", detail: "A moderate Gaussian blur is applied to the video frames." },
   { id: "E6", label: "E6 · Video blur · σ = 4", detail: "A strong Gaussian blur is applied to the video frames." },
-  { id: "E7", label: "E7 · Missing audio", detail: "The audio stream is removed so only visual evidence remains." },
+  { id: "E7", label: "E7 · Missing audio", detail: "The audio waveform is replaced with silence while the visual stream remains unchanged." },
   { id: "E8", label: "E8 · Missing video", detail: "The video stream is removed so only audio evidence remains." },
   { id: "E9", label: "E9 · Audio 0 dB + Video blur σ = 4", detail: "Severe audio noise is combined with strong visual blur." },
 ];
@@ -119,6 +119,7 @@ function ResultCard({
   );
 }
 
+
 function StudyMetric({
   label,
   clean,
@@ -128,17 +129,18 @@ function StudyMetric({
   clean: number;
   selected: number;
 }) {
-  const drop = clean - selected;
+  const dropPpRaw = (clean - selected) * 100;
 
   const dropPp =
-  Math.abs((clean - selected) * 100) < 0.05
-    ? 0
-    : (clean - selected) * 100;
+    Math.abs(dropPpRaw) < 0.05
+      ? 0
+      : dropPpRaw;
 
   return (
     <div className="studyMetric">
       <div>
         <div className="studyLabel">{label}</div>
+
         <div className="studyNumbers">
           {pct(clean)} <span>→</span> {pct(selected)}
         </div>
@@ -146,14 +148,19 @@ function StudyMetric({
 
       <div
         className={`studyDrop ${
-          drop > 0.001 ? "negative" : drop < -0.001 ? "positive" : ""
+          dropPp > 0.05
+            ? "negative"
+            : dropPp < -0.05
+              ? "positive"
+              : ""
         }`}
       >
-        Δ {drop.toFixed(1)} pp
+        Δ {dropPp.toFixed(1)} pp
       </div>
     </div>
   );
 }
+
 
 export default function Home() {
   const [file, setFile] = useState<File | null>(null);
