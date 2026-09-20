@@ -179,7 +179,18 @@ The demonstrator lets a user upload a video and compare:
 The interface deliberately separates **single-video prediction confidence** from **dataset-level research accuracy** so interactive predictions are not confused with experimental test-set metrics.
 
 ---
+### Example: Missing-Audio Robustness Test
 
+The following example demonstrates experiment **E7 — Missing Audio**.
+
+For the same AVE sample, the clean multimodal model predicts **Church bell** with high confidence. After replacing the audio modality with silence, the audio-only and multimodal predictions collapse, while the visual-only prediction remains stable.
+
+![E7 Missing Audio robustness demonstration](figures/app_demo_e7_missing_audio.png)
+
+The interactive result is consistent with the dataset-level finding: multimodal mean accuracy decreases from **86.73% under clean conditions to 10.95% when audio is missing**, while the visual-only branch remains unchanged.
+
+
+---
 ## Research-Parity Validation
 
 The application was checked against stored research predictions using the same AVE test samples.
