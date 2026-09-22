@@ -1,0 +1,18 @@
+{
+  "selected_threshold": 0.55,
+  "selection_split": "validation",
+  "selection_data": "clean_validation_only",
+  "validation_samples": 402,
+  "baseline_clean_validation_accuracy": 0.9038,
+  "hybrid_clean_validation_accuracy": 0.9038,
+  "clean_validation_change": 0.0,
+  "validation_switch_rate": 0.2579,
+  "selection_rule": "Smallest confidence-gap threshold that preserved the original multimodal mean clean-validation accuracy.",
+  "reliability_signal": "maximum unimodal softmax confidence",
+  "important": "Threshold locked before final E0-E9 test evaluation.",
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}
