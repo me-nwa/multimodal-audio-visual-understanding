@@ -1,0 +1,13 @@
+metric,value
+clean_multimodal_accuracy,0.867330016583748
+missing_audio_multimodal_accuracy,0.1094527363184079
+missing_video_multimodal_accuracy,0.8325041459369817
+audio_removal_accuracy_drop,0.7578772802653401
+video_removal_accuracy_drop,0.03482587064676623
+audio_reliance_ratio,0.9560669456066945
+visual_reliance_ratio,0.04393305439330551
+missing_audio_fallback_gap,-0.3938640132669985
+missing_video_fallback_gap,-0.029021558872305064
+audio_removal_macro_f1_drop,0.7979370153344713
+video_removal_macro_f1_drop,0.039942746004162144
+audio_reliance_ratio_macro_f1,0.952328785289732
