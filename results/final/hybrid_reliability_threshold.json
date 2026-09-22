@@ -1,0 +1,14 @@
+{
+  "selected_threshold": 0.0,
+  "selection_split": "validation",
+  "validation_samples": 402,
+  "selection_data": "clean_validation_only",
+  "clean_tolerance": 0.005,
+  "selection_rule": "Smallest confidence-gap threshold whose mean clean-validation accuracy is no more than 0.5 percentage points below the original multimodal baseline.",
+  "reliability_signal": "Maximum unimodal softmax confidence",
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}
