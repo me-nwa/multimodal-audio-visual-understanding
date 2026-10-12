@@ -1,3 +1,9 @@
+## 🌐 Live Demo
+
+[Open the Multimodal Audio-Visual Understanding Demo](https://multimodal-audio-visual-understandi.vercel.app)
+
+
+
 # Multimodal Foundation Models for Audio-Visual Understanding
 
 A research project investigating how robust pretrained audio-visual representations are when one modality is noisy, degraded, or missing.
