@@ -1,13 +1,29 @@
-## 🌐 Live Demo
+<table align="center">
+  <tr>
+    <td align="center">
 
-[Open the Multimodal Audio-Visual Understanding Demo](https://multimodal-audio-visual-understandi.vercel.app)
+### 🌐 Live Research Demonstrator
 
+**Interactive prototype for multimodal audio-visual robustness evaluation**
+
+<a href="https://multimodal-audio-visual-understandi.vercel.app">
+  <img src="https://img.shields.io/badge/OPEN%20LIVE%20DEMO-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Open Live Demo">
+</a>
+
+<br>
+
+<sub>Next.js • FastAPI • CLAP • VideoMAE • AVE Dataset</sub>
+
+  </td>
+ </tr>
+</table>
+
+<br>
 
 
 # Multimodal Foundation Models for Audio-Visual Understanding
 
 A research project investigating how robust pretrained audio-visual representations are when one modality is noisy, degraded, or missing.
-
 The project evaluates three classification settings on the **Audio-Visual Event (AVE)** dataset:
 
 - **Audio-only** using CLAP
