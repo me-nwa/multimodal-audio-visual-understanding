@@ -20,7 +20,7 @@
 
 <br>
 
-
+[📊 Explore Interactive Poster which include Research Results](https://multimodal-audio-visual-understandi.vercel.app/1109499_Poster.html)
 # Multimodal Foundation Models for Audio-Visual Understanding
 
 A research project investigating how robust pretrained audio-visual representations are when one modality is noisy, degraded, or missing.
