@@ -1,0 +1,11 @@
+experiment,condition,mean_accuracy_change,significant_seeds,total_seeds
+E0,Clean,0.0008291873963515902,0,3
+E1,Audio noise 20 dB,0.0008291873963515531,0,3
+E2,Audio noise 10 dB,0.0016583747927031804,0,3
+E3,Audio noise 0 dB,0.008291873963515791,0,3
+E4,Video blur sigma=1,0.0,0,3
+E5,Video blur sigma=2,0.0,0,3
+E6,Video blur sigma=4,0.0,0,3
+E7,Missing audio,0.3938640132669984,3,3
+E8,Missing video,0.029021558872305103,1,3
+E9,Audio 0 dB + Video sigma=4,0.00580431177446102,0,3

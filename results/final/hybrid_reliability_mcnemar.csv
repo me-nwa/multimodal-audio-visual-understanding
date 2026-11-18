@@ -1,0 +1,31 @@
+experiment,condition,seed,accuracy_change,b_baseline_correct_hybrid_wrong,c_baseline_wrong_hybrid_correct,discordant_pairs,p_raw,p_holm,significant_0_05
+E0,Clean,42,0.0,0,0,0,1.0,1.0,False
+E0,Clean,43,0.0,0,0,0,1.0,1.0,False
+E0,Clean,44,0.0024875621890547706,0,1,1,1.0,1.0,False
+E1,Audio noise 20 dB,42,0.0,1,1,2,1.0,1.0,False
+E1,Audio noise 20 dB,43,0.0024875621890546595,0,1,1,1.0,1.0,False
+E1,Audio noise 20 dB,44,0.0,0,0,0,1.0,1.0,False
+E2,Audio noise 10 dB,42,0.0,0,0,0,1.0,1.0,False
+E2,Audio noise 10 dB,43,0.0024875621890547706,0,1,1,1.0,1.0,False
+E2,Audio noise 10 dB,44,0.0024875621890547706,0,1,1,1.0,1.0,False
+E3,Audio noise 0 dB,42,0.00497512437810943,0,2,2,0.5,1.0,False
+E3,Audio noise 0 dB,43,0.009950248756218971,0,4,4,0.125,1.0,False
+E3,Audio noise 0 dB,44,0.009950248756218971,0,4,4,0.125,1.0,False
+E4,Video blur sigma=1,42,0.0,0,0,0,1.0,1.0,False
+E4,Video blur sigma=1,43,0.0,0,0,0,1.0,1.0,False
+E4,Video blur sigma=1,44,0.0,0,0,0,1.0,1.0,False
+E5,Video blur sigma=2,42,0.0,0,0,0,1.0,1.0,False
+E5,Video blur sigma=2,43,0.0,0,0,0,1.0,1.0,False
+E5,Video blur sigma=2,44,0.0,0,0,0,1.0,1.0,False
+E6,Video blur sigma=4,42,0.0,0,0,0,1.0,1.0,False
+E6,Video blur sigma=4,43,0.0,0,0,0,1.0,1.0,False
+E6,Video blur sigma=4,44,0.0,0,0,0,1.0,1.0,False
+E7,Missing audio,42,0.40547263681592044,16,179,195,4.84879266030424e-36,4.84879266030424e-35,True
+E7,Missing audio,43,0.3955223880597015,18,177,195,5.1168552672035676e-34,5.116855267203568e-33,True
+E7,Missing audio,44,0.3805970149253731,21,174,195,3.5698487716098694e-31,3.569848771609869e-30,True
+E8,Missing video,42,0.01492537313432829,5,11,16,0.210113525390625,1.0,False
+E8,Missing video,43,0.04228855721393032,6,23,29,0.002315700054168701,0.02084130048751831,True
+E8,Missing video,44,0.02985074626865669,8,20,28,0.03569813817739487,0.3212832435965538,False
+E9,Audio 0 dB + Video sigma=4,42,0.00497512437810943,0,2,2,0.5,1.0,False
+E9,Audio 0 dB + Video sigma=4,43,0.00497512437810943,0,2,2,0.5,1.0,False
+E9,Audio 0 dB + Video sigma=4,44,0.007462686567164201,0,3,3,0.25,1.0,False
