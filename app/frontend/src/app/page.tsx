@@ -111,6 +111,9 @@ const EXAMPLES = [
     condition: "E7",
     sample_id: "ave_03741",
     filename: "EsfJpLbBeb4.mp4",
+    clipUrl: "/examples/EsfJpLbBeb4.mp4",
+    resultUrl: "/examples/church_bell_e7.json",
+    matrixUrl: "/examples/church_bell_matrix.json",
   },
   {
     id: "church_bell_e3",
@@ -118,8 +121,62 @@ const EXAMPLES = [
     condition: "E3",
     sample_id: "ave_03741",
     filename: "EsfJpLbBeb4.mp4",
+    clipUrl: "/examples/EsfJpLbBeb4.mp4",
+    resultUrl: "/examples/church_bell_e3.json",
+    matrixUrl: "/examples/church_bell_matrix.json",
   },
 ];
+
+const LIVE_UNAVAILABLE =
+  "This hosted site cannot reach the local FastAPI engine. Use Church bell · E7 or E3 for the paper demo, or open http://127.0.0.1:3000 after starting uvicorn on port 8000.";
+
+function recordedExample(
+  nextFile: File | null,
+  nextCondition: string,
+  nextSampleId: string | null = null
+) {
+  return (
+    EXAMPLES.find(
+      (item) =>
+        item.condition === nextCondition &&
+        (item.filename === nextFile?.name ||
+          item.sample_id === nextSampleId)
+    ) ?? null
+  );
+}
+
+function isLiveUnavailable(message: string) {
+  return (
+    message === "Failed to fetch" ||
+    message.includes("127.0.0.1:8000") ||
+    message.includes("Cannot reach the FastAPI") ||
+    message.includes("Cannot reach the prediction API") ||
+    message.includes("aborted") ||
+    message.includes("Timeout")
+  );
+}
+
+function isHostedDemo() {
+  return (
+    typeof window !== "undefined" &&
+    window.location.hostname.endsWith("vercel.app")
+  );
+}
+
+function liveFetchSignal() {
+  if (isHostedDemo()) {
+    return AbortSignal.timeout(8000);
+  }
+  return undefined;
+}
+
+async function loadRecordedResult(url: string) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("Recorded example is not available.");
+  }
+  return response.json();
+}
 
 function pct(value: number, digits = 1) {
   return `${(value * 100).toFixed(digits)}%`;
@@ -286,6 +343,9 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [matrixLoading, setMatrixLoading] = useState(false);
   const [error, setError] = useState("");
+  const [resultSource, setResultSource] = useState<"live" | "recorded" | null>(
+    null
+  );
   const [isDragging, setIsDragging] = useState(false);
 
   const selectedStudy = useMemo(
@@ -319,6 +379,7 @@ export default function Home() {
     setSampleId(nextSampleId);
     setResult(null);
     setMatrix(null);
+    setResultSource(null);
     setError("");
   }
 
@@ -338,8 +399,17 @@ export default function Home() {
     setError("");
     setResult(null);
     setMatrix(null);
+    setResultSource(null);
+
+    const recorded = recordedExample(nextFile, nextCondition, nextSampleId);
 
     try {
+      if (isHostedDemo() && recorded) {
+        setResult(await loadRecordedResult(recorded.resultUrl));
+        setResultSource("recorded");
+        return;
+      }
+
       const formData = new FormData();
       formData.append("file", nextFile);
       formData.append("condition", nextCondition);
@@ -348,6 +418,7 @@ export default function Home() {
       const response = await fetch(`${API_URL}/predict`, {
         method: "POST",
         body: formData,
+        signal: liveFetchSignal(),
       });
 
       const body = await response.json().catch(() => ({}));
@@ -357,14 +428,23 @@ export default function Home() {
       }
 
       setResult(body);
+      setResultSource("live");
+      return;
     } catch (err) {
+      if (recorded) {
+        try {
+          setResult(await loadRecordedResult(recorded.resultUrl));
+          setResultSource("recorded");
+          setError("");
+          return;
+        } catch {
+          // Fall through to the live-API error.
+        }
+      }
+
       const message =
         err instanceof Error ? err.message : "Prediction failed.";
-      setError(
-        message === "Failed to fetch"
-          ? "Cannot reach the prediction API. Start the FastAPI backend on port 8000, then open the local app instead of the Vercel site."
-          : message
-      );
+      setError(isLiveUnavailable(message) ? LIVE_UNAVAILABLE : message);
     } finally {
       setLoading(false);
     }
@@ -376,13 +456,16 @@ export default function Home() {
 
     setLoading(true);
     setError("");
+    setCondition(example.condition);
+    setSampleId(example.sample_id);
+    setResult(null);
+    setMatrix(null);
+    setResultSource(null);
 
     try {
-      const response = await fetch(`${API_URL}/examples/${exampleId}/video`);
+      const response = await fetch(example.clipUrl);
       if (!response.ok) {
-        throw new Error(
-          "Example clip is not available. Keep the local AVE videos under data/raw/ave/videos/."
-        );
+        throw new Error("Example clip is not available.");
       }
 
       const blob = await response.blob();
@@ -390,9 +473,7 @@ export default function Home() {
         type: "video/mp4",
       });
 
-      setCondition(example.condition);
       setFile(nextFile);
-      setSampleId(example.sample_id);
       await analyze(nextFile, example.condition, example.sample_id);
     } catch (err) {
       setLoading(false);
@@ -406,7 +487,15 @@ export default function Home() {
     setMatrixLoading(true);
     setError("");
 
+    const recorded = recordedExample(file, condition, sampleId);
+
     try {
+      if (isHostedDemo() && recorded) {
+        const body = await loadRecordedResult(recorded.matrixUrl);
+        setMatrix(body.conditions);
+        return;
+      }
+
       const formData = new FormData();
       formData.append("file", file);
       if (sampleId) formData.append("sample_id", sampleId);
@@ -414,6 +503,7 @@ export default function Home() {
       const response = await fetch(`${API_URL}/predict_matrix`, {
         method: "POST",
         body: formData,
+        signal: liveFetchSignal(),
       });
 
       const body = await response.json().catch(() => ({}));
@@ -423,10 +513,22 @@ export default function Home() {
       }
 
       setMatrix(body.conditions);
+      return;
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Matrix evaluation failed."
-      );
+      if (recorded) {
+        try {
+          const body = await loadRecordedResult(recorded.matrixUrl);
+          setMatrix(body.conditions);
+          setError("");
+          return;
+        } catch {
+          // Fall through to the live-API error.
+        }
+      }
+
+      const message =
+        err instanceof Error ? err.message : "Matrix evaluation failed.";
+      setError(isLiveUnavailable(message) ? LIVE_UNAVAILABLE : message);
     } finally {
       setMatrixLoading(false);
     }
@@ -599,6 +701,9 @@ export default function Home() {
               <span>{result.condition.label}</span>
               {result.true_class && <span>True class: {result.true_class}</span>}
               <span>Window: up to {result.clip_seconds}s</span>
+              {resultSource === "recorded" && (
+                <span>Recorded example · paper demo</span>
+              )}
             </section>
 
             <section className="resultsSection">
