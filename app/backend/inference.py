@@ -18,6 +18,7 @@ from transformers import (
 )
 
 from .corruptions import (
+    CONDITIONS,
     apply_condition,
     get_condition,
 )
@@ -41,6 +42,7 @@ MODEL_DIR = (
 SAMPLE_RATE = 48_000
 NUM_FRAMES = 16
 MAX_SECONDS = 10.0
+HRAR_TAU = 0.55
 
 
 class EventClassifier(nn.Module):
@@ -473,10 +475,80 @@ class ResearchInference:
             "top3": top3,
         }
 
+    def _apply_hrar(
+        self,
+        audio: dict,
+        visual: dict,
+        fusion: dict,
+        experiment: str,
+    ) -> dict:
+
+        audio_available = experiment != "E7"
+        video_available = experiment != "E8"
+        confidence_gap = abs(
+            audio["confidence"] - visual["confidence"]
+        )
+
+        if not audio_available:
+            chosen = visual
+            routed_expert = "visual"
+            strategy = "visual_fallback"
+            reason = (
+                "audio unavailable → routed to visual expert"
+            )
+        elif not video_available:
+            chosen = audio
+            routed_expert = "audio"
+            strategy = "audio_fallback"
+            reason = (
+                "video unavailable → routed to audio expert"
+            )
+        elif confidence_gap >= HRAR_TAU:
+            if audio["confidence"] >= visual["confidence"]:
+                chosen = audio
+                routed_expert = "audio"
+                strategy = "audio_reliability_switch"
+                reason = (
+                    f"confidence gap {confidence_gap:.2f} ≥ τ "
+                    "→ routed to audio expert"
+                )
+            else:
+                chosen = visual
+                routed_expert = "visual"
+                strategy = "visual_reliability_switch"
+                reason = (
+                    f"confidence gap {confidence_gap:.2f} ≥ τ "
+                    "→ routed to visual expert"
+                )
+        else:
+            chosen = fusion
+            routed_expert = "fusion"
+            strategy = "multimodal"
+            reason = (
+                f"confidence gap {confidence_gap:.2f} < τ "
+                "→ kept Fusion (B0)"
+            )
+
+        return {
+            "class_name": chosen["class_name"],
+            "confidence": chosen["confidence"],
+            "top3": chosen["top3"],
+            "tau": HRAR_TAU,
+            "routed_expert": routed_expert,
+            "selected_strategy": strategy,
+            "reason": reason,
+            "audio_available": audio_available,
+            "video_available": video_available,
+            "audio_confidence": audio["confidence"],
+            "visual_confidence": visual["confidence"],
+            "confidence_gap": confidence_gap,
+        }
+
     def _prediction_bundle(
         self,
         audio_feature: np.ndarray,
         visual_feature: np.ndarray,
+        experiment: str,
     ) -> dict:
 
         # Both embeddings are already L2-normalized,
@@ -491,22 +563,29 @@ class ResearchInference:
             .astype(np.float32)
         )
 
+        audio = self._predict_feature(
+            "audio",
+            audio_feature,
+        )
+        visual = self._predict_feature(
+            "visual",
+            visual_feature,
+        )
+        multimodal = self._predict_feature(
+            "multimodal",
+            multimodal_feature,
+        )
+
         return {
-            "audio":
-                self._predict_feature(
-                    "audio",
-                    audio_feature,
-                ),
-            "visual":
-                self._predict_feature(
-                    "visual",
-                    visual_feature,
-                ),
-            "multimodal":
-                self._predict_feature(
-                    "multimodal",
-                    multimodal_feature,
-                ),
+            "audio": audio,
+            "visual": visual,
+            "multimodal": multimodal,
+            "hrar": self._apply_hrar(
+                audio,
+                visual,
+                multimodal,
+                experiment,
+            ),
         }
 
     def predict_video(
@@ -548,6 +627,7 @@ class ResearchInference:
             self._prediction_bundle(
                 clean_audio_feature,
                 clean_visual_feature,
+                experiment="E0",
             )
         )
 
@@ -605,6 +685,7 @@ class ResearchInference:
                 self._prediction_bundle(
                     degraded_audio_feature,
                     degraded_visual_feature,
+                    experiment=spec.experiment,
                 )
             )
 
@@ -632,4 +713,90 @@ class ResearchInference:
                 clean_predictions,
             "degraded":
                 degraded_predictions,
+        }
+
+    def predict_matrix(
+        self,
+        video_path: Path,
+        sample_key: str = "upload",
+    ) -> dict:
+
+        clean_audio = self._extract_audio(video_path)
+        clean_frames = self._extract_frames(video_path)
+        clean_audio_feature = self._audio_embedding(clean_audio)
+        clean_visual_feature = self._visual_embedding(clean_frames)
+
+        rows = []
+
+        for experiment, spec in CONDITIONS.items():
+            if experiment == "E0":
+                bundle = self._prediction_bundle(
+                    clean_audio_feature,
+                    clean_visual_feature,
+                    experiment="E0",
+                )
+            else:
+                (
+                    corrupted_audio,
+                    corrupted_frames,
+                    _,
+                    _,
+                ) = apply_condition(
+                    clean_audio,
+                    clean_frames,
+                    experiment=experiment,
+                    sample_key=sample_key,
+                )
+
+                if spec.audio_mode == "clean":
+                    audio_feature = clean_audio_feature
+                else:
+                    audio_feature = self._audio_embedding(
+                        corrupted_audio
+                    )
+
+                if spec.video_mode == "clean":
+                    visual_feature = clean_visual_feature
+                else:
+                    visual_feature = self._visual_embedding(
+                        corrupted_frames
+                    )
+
+                bundle = self._prediction_bundle(
+                    audio_feature,
+                    visual_feature,
+                    experiment=experiment,
+                )
+
+            rows.append(
+                {
+                    "experiment": experiment,
+                    "label": spec.label,
+                    "audio": {
+                        "class_name": bundle["audio"]["class_name"],
+                        "confidence": bundle["audio"]["confidence"],
+                    },
+                    "visual": {
+                        "class_name": bundle["visual"]["class_name"],
+                        "confidence": bundle["visual"]["confidence"],
+                    },
+                    "fusion": {
+                        "class_name": bundle["multimodal"]["class_name"],
+                        "confidence": bundle["multimodal"]["confidence"],
+                    },
+                    "hrar": {
+                        "class_name": bundle["hrar"]["class_name"],
+                        "confidence": bundle["hrar"]["confidence"],
+                        "routed_expert": bundle["hrar"]["routed_expert"],
+                        "reason": bundle["hrar"]["reason"],
+                    },
+                }
+            )
+
+        return {
+            "seed": self.seed,
+            "sample_key": sample_key,
+            "clip_seconds": MAX_SECONDS,
+            "tau": HRAR_TAU,
+            "conditions": rows,
         }

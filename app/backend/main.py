@@ -15,6 +15,7 @@ from fastapi import (
 from fastapi.middleware.cors import (
     CORSMiddleware,
 )
+from fastapi.responses import FileResponse
 
 from .corruptions import (
     CONDITIONS,
@@ -36,13 +37,50 @@ MANIFEST = (
     / "data/metadata/ave_manifest_validated.csv"
 )
 
+EXAMPLES = {
+    "church_bell_e7": {
+        "id": "church_bell_e7",
+        "label": "Church bell · E7 missing audio",
+        "detail": "Paper example: Fusion (B0) collapses, HRAR recovers the visual expert.",
+        "filename": "EsfJpLbBeb4.mp4",
+        "sample_id": "ave_03741",
+        "condition": "E7",
+        "true_class": "Church bell",
+        "video_path": PROJECT_ROOT
+        / "data/raw/ave/videos/EsfJpLbBeb4.mp4",
+    },
+    "church_bell_e3": {
+        "id": "church_bell_e3",
+        "label": "Church bell · E3 audio 0 dB",
+        "detail": "Severe audio noise with both modalities still present.",
+        "filename": "EsfJpLbBeb4.mp4",
+        "sample_id": "ave_03741",
+        "condition": "E3",
+        "true_class": "Church bell",
+        "video_path": PROJECT_ROOT
+        / "data/raw/ave/videos/EsfJpLbBeb4.mp4",
+    },
+}
+
+
+def lookup_true_class(sample_key: str) -> str | None:
+    if not MANIFEST.exists():
+        return None
+
+    with MANIFEST.open("r", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            if row.get("sample_id") == sample_key:
+                return row.get("class_name")
+
+    return None
+
 
 app = FastAPI(
     title=(
         "Multimodal Audio-Visual "
         "Understanding API"
     ),
-    version="0.2.1",
+    version="0.3.0",
 )
 
 app.add_middleware(
@@ -50,7 +88,14 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+        "http://localhost:3010",
+        "http://127.0.0.1:3010",
+        "https://multimodal-audio-visual-understandi.vercel.app",
     ],
+    allow_origin_regex=(
+        r"https://.*\.vercel\.app"
+        r"|http://(localhost|127\.0\.0\.1):\d+"
+    ),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -164,7 +209,7 @@ def health():
             "multimodal-audio-visual-"
             "understanding"
         ),
-        "version": "0.2.1",
+        "version": "0.3.0",
     }
 
 
@@ -188,6 +233,40 @@ def conditions():
         for key, spec
         in CONDITIONS.items()
     ]
+
+
+@app.get("/examples")
+def examples():
+    return [
+        {
+            "id": item["id"],
+            "label": item["label"],
+            "detail": item["detail"],
+            "filename": item["filename"],
+            "sample_id": item["sample_id"],
+            "condition": item["condition"],
+            "true_class": item["true_class"],
+            "available": item["video_path"].exists(),
+        }
+        for item in EXAMPLES.values()
+    ]
+
+
+@app.get("/examples/{example_id}/video")
+def example_video(example_id: str):
+    item = EXAMPLES.get(example_id)
+
+    if item is None or not item["video_path"].exists():
+        raise HTTPException(
+            status_code=404,
+            detail="Example clip is not available on this machine.",
+        )
+
+    return FileResponse(
+        item["video_path"],
+        media_type="video/mp4",
+        filename=item["filename"],
+    )
 
 
 @app.post("/predict")
@@ -282,5 +361,65 @@ async def predict(
             file.filename,
         "sample_key_source":
             sample_key_source,
+        "true_class":
+            lookup_true_class(sample_key),
+        **result,
+    }
+
+
+@app.post("/predict_matrix")
+async def predict_matrix(
+    file: UploadFile = File(...),
+    sample_id: str | None = Form(None),
+):
+    if not file.filename:
+        raise HTTPException(
+            status_code=400,
+            detail="No file name supplied.",
+        )
+
+    suffix = Path(file.filename).suffix.lower()
+
+    if suffix not in {
+        ".mp4",
+        ".mov",
+        ".m4v",
+        ".avi",
+        ".webm",
+    }:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                "Upload a video file: "
+                "mp4, mov, m4v, avi, or webm."
+            ),
+        )
+
+    sample_key, sample_key_source = resolve_sample_key(
+        file.filename,
+        sample_id,
+    )
+
+    with tempfile.TemporaryDirectory(prefix="av_demo_") as tmp:
+        input_path = Path(tmp) / f"input{suffix}"
+
+        with input_path.open("wb") as f:
+            shutil.copyfileobj(file.file, f)
+
+        try:
+            result = get_engine().predict_matrix(
+                input_path,
+                sample_key=sample_key,
+            )
+        except Exception as exc:
+            raise HTTPException(
+                status_code=500,
+                detail=str(exc),
+            ) from exc
+
+    return {
+        "filename": file.filename,
+        "sample_key_source": sample_key_source,
+        "true_class": lookup_true_class(sample_key),
         **result,
     }
